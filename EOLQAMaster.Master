@@ -1,0 +1,98 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="EOLQAMaster.master.cs" Inherits="IMKelly_EOLQA.EOLQAMaster" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head id="Head1" runat="server">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link id="Link1" type="text/css" rel="stylesheet" runat="server" media="all" href="~/Content/bootstrap.min.css" />
+        <link id="Link2" type="text/css" rel="stylesheet" runat="server" media="all" href="~/Content/bootstrap-theme.min.css" />
+        <link id="Link4" type="text/css" rel="stylesheet" runat="server" media="all" href="~/Content/datepicker.css" />
+        <link id="Link5" type="text/css" rel="stylesheet" runat="server" media="all" href="~/Content/style.css" />
+
+                <title id="formTitle" runat="server">I.M.Kelly EOLQA</title>
+
+
+<style>
+    .NoVis 
+    {
+        color: white;
+        border: none;
+        outline: none;
+    }
+</style>
+
+
+        <asp:ContentPlaceHolder ID="head" runat="server">
+
+        </asp:ContentPlaceHolder>
+
+    </head>
+
+    <body>
+        <form id="form1" runat="server">
+            <asp:ScriptManager id="smScripts" runat="server">
+                <scripts>
+                    <asp:ScriptReference Path="Scripts/jquery-3.1.1.min.js"></asp:ScriptReference>
+                    <asp:ScriptReference Path="Scripts/bootstrap.js"></asp:ScriptReference>
+                    <asp:ScriptReference Path="Scripts/bootstrap-datepicker.js"></asp:ScriptReference>
+                </scripts>
+            </asp:ScriptManager>
+
+<script type="text/javascript" lang="javascript">
+
+    Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(BeginRequestHandler);
+    function BeginRequestHandler(sender, args) { var oControl = args.get_postBackElement(); oControl.disabled = true; }
+
+</script>
+            
+
+            <div class="row">
+                <div class="col-xs-12">&nbsp;</div>
+            </div>
+
+            <div class="row" runat="server" id="titleArea">
+                <div class="col-sm-1"></div>
+                <div class="col-sm-5">
+                    <asp:Label runat="server" ID="pageTitle" CssClass="h3">
+                        I.M.Kelly End of line quality assurance.
+                    </asp:Label>
+                </div>
+                <div class="col-sm-5">
+                    <asp:ContentPlaceHolder ID="contentHeaderButtons" runat="server">
+
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div class="col-sm-1"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-10" runat="server" id="messageDiv">
+                </div>
+                <div class="col-xs-1"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-10">
+                    <asp:ContentPlaceHolder ID="bodyContent" runat="server">
+        
+                    </asp:ContentPlaceHolder>
+                </div>
+                <div class="col-xs-1"></div>
+            </div>
+        </form>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                // Date picker
+                $(".datepicker").datepicker({
+                    format: 'yyyy/mm/dd',
+                    autoclose: true
+                });
+            });
+        </script>
+
+    </body>
+</html>
